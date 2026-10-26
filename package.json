@@ -1,0 +1,46 @@
+{
+  "name": "rudow-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server for Rudow — let your AI assistant query your app's logs, metrics and incidents.",
+  "mcpName": "io.github.prenzio/rudow-mcp-server",
+  "license": "MIT",
+  "author": "Rudow",
+  "homepage": "https://rudow.ai/docs/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prenzio/rudow-mcp-server.git"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "rudow",
+    "logs",
+    "observability",
+    "monitoring"
+  ],
+  "type": "module",
+  "bin": {
+    "rudow-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "check-tools": "npm run build && node scripts/check-tools.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.prenzio/rudow-mcp-server",
+  "title": "Rudow",
+  "description": "Query your app's logs, metrics and incidents from your AI assistant.",
+  "websiteUrl": "https://rudow.ai/docs/mcp",
+  "repository": {
+    "url": "https://github.com/prenzio/rudow-mcp-server",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "rudow-mcp-server",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "RUDOW_MCP_KEY",
+          "description": "Your Rudow MCP key (create one in the Rudow dashboard under Settings → Account → MCP keys).",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.rudow.ai/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer followed by your Rudow MCP key, e.g. 'Bearer alogmcp_...'.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
